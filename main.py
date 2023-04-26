@@ -45,7 +45,7 @@ def main():
 
 
 def handle_chord_request():
-    prompt_for_chord = task_prompt + " Chord" + prompt_term
+    prompt_for_chord = "Enter chord: "
     chord_input = input(prompt_for_chord)
     [note, type] = chord_input.strip().split(" ")
     includes_seventh_interval = False
@@ -57,7 +57,7 @@ def handle_chord_request():
 
 
 def handle_scale_request():
-    prompt_for_scale = task_prompt + " Scale" + prompt_term
+    prompt_for_scale = "Enter scale: "
     scale_input = input(prompt_for_scale)
     [note, type] = scale_input.strip().split(" ")
     sc = Scale()
