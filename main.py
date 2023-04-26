@@ -4,13 +4,13 @@ from src.scale import Scale
 from src.chord import Chord
 
 common_prompt = """
-    Welcome to the Music Theory CLT!
+    Welcome to the Music Theory CLI!
     
     This tool allows you to review the various chords and scales present in the musical literature.
     Whether you need to remember your chords, or you want to understand the theory behind music 
     better, this tool can come in handy.
     
-    First, we will ask you to choose an action. The action can be "scale", "chord", or "exit".
+    First, we will ask you to choose a task. The task can be "scale", "chord", or "exit".
     Next, if you chose "scale", it allows you to enter the scale name, which should be of the format:
     
         <note> <type>
@@ -24,11 +24,14 @@ common_prompt = """
     Thank you for reading this lengthy demo. Have fun!
 """
 
+task_prompt = "task"
+prompt_term = "> "
+
 
 def main():
     print(common_prompt)
     while True:
-        _user_in = input("Action> ")
+        _user_in = input(task_prompt + prompt_term).strip()
         if _user_in == "exit":
             break
         if _user_in == "scale":
@@ -42,9 +45,9 @@ def main():
 
 
 def handle_chord_request():
-    prompt_for_chord = "Enter chord : "
+    prompt_for_chord = task_prompt + " Chord" + prompt_term
     chord_input = input(prompt_for_chord)
-    [note, type] = chord_input.split(" ")
+    [note, type] = chord_input.strip().split(" ")
     includes_seventh_interval = False
     if type == "major7" or type == "minor7":
         type = "major" if (type == "major7") else "minor"
@@ -54,9 +57,9 @@ def handle_chord_request():
 
 
 def handle_scale_request():
-    prompt_for_scale = "Enter scale : "
+    prompt_for_scale = task_prompt + " Scale" + prompt_term
     scale_input = input(prompt_for_scale)
-    [note, type] = scale_input.split(" ")
+    [note, type] = scale_input.strip().split(" ")
     sc = Scale()
     print(sc.get_scale(note, type))
 
