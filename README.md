@@ -1,8 +1,7 @@
 # music-theory
 
-A fun project to visualize Music Theory concepts.
-The project is currently implemented as a CLI that simply prints out the chord or scale that the user requests.
-However, we plan to build either a website or mobile application that would allow users to better interact and learn the concepts.
+The only reason this project exists is because I wanted to review some music theory concepts without having to google them every time.
+The project is currently implemented as a CLI that simply prints out the chord or scale that the user requests. As I learn more concepts in music theory, I will implement them in the CLI as well for lookup.
 
 ## Usage
 
